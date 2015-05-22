@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61988E5D1B0F6F840007976E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988E5C1B0F6F840007976E /* AppDelegate.swift */; };
+		61988E5F1B0F6F840007976E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988E5E1B0F6F840007976E /* ViewController.swift */; };
+		61988E621B0F6F840007976E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61988E601B0F6F840007976E /* Main.storyboard */; };
+		61988E641B0F6F840007976E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61988E631B0F6F840007976E /* Images.xcassets */; };
+		61988E671B0F6F840007976E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61988E651B0F6F840007976E /* LaunchScreen.xib */; };
+		61988E731B0F6F840007976E /* licaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988E721B0F6F840007976E /* licaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61988E6D1B0F6F840007976E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61988E4F1B0F6F840007976E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61988E561B0F6F840007976E;
+			remoteInfo = lica;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61988E571B0F6F840007976E /* lica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61988E5B1B0F6F840007976E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61988E5C1B0F6F840007976E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		61988E5E1B0F6F840007976E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61988E611B0F6F840007976E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		61988E631B0F6F840007976E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61988E661B0F6F840007976E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		61988E6C1B0F6F840007976E /* licaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = licaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61988E711B0F6F840007976E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61988E721B0F6F840007976E /* licaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = licaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61988E541B0F6F840007976E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61988E691B0F6F840007976E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61988E4E1B0F6F840007976E = {
+			isa = PBXGroup;
+			children = (
+				61988E591B0F6F840007976E /* lica */,
+				61988E6F1B0F6F840007976E /* licaTests */,
+				61988E581B0F6F840007976E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61988E581B0F6F840007976E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61988E571B0F6F840007976E /* lica.app */,
+				61988E6C1B0F6F840007976E /* licaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61988E591B0F6F840007976E /* lica */ = {
+			isa = PBXGroup;
+			children = (
+				61988E5C1B0F6F840007976E /* AppDelegate.swift */,
+				61988E5E1B0F6F840007976E /* ViewController.swift */,
+				61988E601B0F6F840007976E /* Main.storyboard */,
+				61988E631B0F6F840007976E /* Images.xcassets */,
+				61988E651B0F6F840007976E /* LaunchScreen.xib */,
+				61988E5A1B0F6F840007976E /* Supporting Files */,
+			);
+			path = lica;
+			sourceTree = "<group>";
+		};
+		61988E5A1B0F6F840007976E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61988E5B1B0F6F840007976E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61988E6F1B0F6F840007976E /* licaTests */ = {
+			isa = PBXGroup;
+			children = (
+				61988E721B0F6F840007976E /* licaTests.swift */,
+				61988E701B0F6F840007976E /* Supporting Files */,
+			);
+			path = licaTests;
+			sourceTree = "<group>";
+		};
+		61988E701B0F6F840007976E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61988E711B0F6F840007976E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61988E561B0F6F840007976E /* lica */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61988E761B0F6F840007976E /* Build configuration list for PBXNativeTarget "lica" */;
+			buildPhases = (
+				61988E531B0F6F840007976E /* Sources */,
+				61988E541B0F6F840007976E /* Frameworks */,
+				61988E551B0F6F840007976E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lica;
+			productName = lica;
+			productReference = 61988E571B0F6F840007976E /* lica.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61988E6B1B0F6F840007976E /* licaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61988E791B0F6F840007976E /* Build configuration list for PBXNativeTarget "licaTests" */;
+			buildPhases = (
+				61988E681B0F6F840007976E /* Sources */,
+				61988E691B0F6F840007976E /* Frameworks */,
+				61988E6A1B0F6F840007976E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61988E6E1B0F6F840007976E /* PBXTargetDependency */,
+			);
+			name = licaTests;
+			productName = licaTests;
+			productReference = 61988E6C1B0F6F840007976E /* licaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61988E4F1B0F6F840007976E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = ukn;
+				TargetAttributes = {
+					61988E561B0F6F840007976E = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					61988E6B1B0F6F840007976E = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 61988E561B0F6F840007976E;
+					};
+				};
+			};
+			buildConfigurationList = 61988E521B0F6F840007976E /* Build configuration list for PBXProject "lica" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61988E4E1B0F6F840007976E;
+			productRefGroup = 61988E581B0F6F840007976E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61988E561B0F6F840007976E /* lica */,
+				61988E6B1B0F6F840007976E /* licaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61988E551B0F6F840007976E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61988E621B0F6F840007976E /* Main.storyboard in Resources */,
+				61988E671B0F6F840007976E /* LaunchScreen.xib in Resources */,
+				61988E641B0F6F840007976E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61988E6A1B0F6F840007976E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61988E531B0F6F840007976E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61988E5F1B0F6F840007976E /* ViewController.swift in Sources */,
+				61988E5D1B0F6F840007976E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61988E681B0F6F840007976E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61988E731B0F6F840007976E /* licaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61988E6E1B0F6F840007976E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61988E561B0F6F840007976E /* lica */;
+			targetProxy = 61988E6D1B0F6F840007976E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		61988E601B0F6F840007976E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61988E611B0F6F840007976E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		61988E651B0F6F840007976E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61988E661B0F6F840007976E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61988E741B0F6F840007976E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		61988E751B0F6F840007976E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		61988E771B0F6F840007976E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = lica/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		61988E781B0F6F840007976E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = lica/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		61988E7A1B0F6F840007976E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = licaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/lica.app/lica";
+			};
+			name = Debug;
+		};
+		61988E7B1B0F6F840007976E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = licaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/lica.app/lica";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61988E521B0F6F840007976E /* Build configuration list for PBXProject "lica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61988E741B0F6F840007976E /* Debug */,
+				61988E751B0F6F840007976E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61988E761B0F6F840007976E /* Build configuration list for PBXNativeTarget "lica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61988E771B0F6F840007976E /* Debug */,
+				61988E781B0F6F840007976E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		61988E791B0F6F840007976E /* Build configuration list for PBXNativeTarget "licaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61988E7A1B0F6F840007976E /* Debug */,
+				61988E7B1B0F6F840007976E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61988E4F1B0F6F840007976E /* Project object */;
+}
