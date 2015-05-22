@@ -1,25 +1,173 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="lica" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwL-ja-wyD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="title_month" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-DY-x6r">
+                                        <rect key="frame" x="151" y="18" width="74" height="16"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal3" translatesAutoresizingMaskIntoConstraints="NO" id="WTa-pS-LDx">
+                                        <rect key="frame" x="34" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal4" translatesAutoresizingMaskIntoConstraints="NO" id="wuB-9O-g2T">
+                                        <rect key="frame" x="82" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal5" translatesAutoresizingMaskIntoConstraints="NO" id="gb0-EL-4Cj">
+                                        <rect key="frame" x="130" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal6" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-zg-qZj">
+                                        <rect key="frame" x="185" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal7" translatesAutoresizingMaskIntoConstraints="NO" id="zV6-of-viv">
+                                        <rect key="frame" x="230" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal8" translatesAutoresizingMaskIntoConstraints="NO" id="wqs-Ct-XKm">
+                                        <rect key="frame" x="276" y="49" width="6" height="9"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="cal9" translatesAutoresizingMaskIntoConstraints="NO" id="908-8w-Lor">
+                                        <rect key="frame" x="335" y="49" width="6" height="9"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="0pt-DY-x6r" secondAttribute="centerX" id="0j2-Ua-Drx"/>
+                                    <constraint firstItem="0pt-DY-x6r" firstAttribute="top" secondItem="ZwL-ja-wyD" secondAttribute="top" constant="18" id="5P8-FV-It1"/>
+                                    <constraint firstItem="gb0-EL-4Cj" firstAttribute="leading" secondItem="wuB-9O-g2T" secondAttribute="trailing" constant="42" id="7eA-9w-LmU"/>
+                                    <constraint firstAttribute="bottom" secondItem="wuB-9O-g2T" secondAttribute="bottom" constant="10" id="85H-P9-Izv"/>
+                                    <constraint firstAttribute="bottom" secondItem="zV6-of-viv" secondAttribute="bottom" constant="10" id="Eos-O2-8VW"/>
+                                    <constraint firstAttribute="bottom" secondItem="c0D-zg-qZj" secondAttribute="bottom" constant="10" id="F3o-UL-LTn"/>
+                                    <constraint firstItem="zV6-of-viv" firstAttribute="leading" secondItem="c0D-zg-qZj" secondAttribute="trailing" constant="39" id="PuP-xP-SBz"/>
+                                    <constraint firstItem="wuB-9O-g2T" firstAttribute="leading" secondItem="WTa-pS-LDx" secondAttribute="trailing" constant="42" id="TWH-PM-ddJ"/>
+                                    <constraint firstItem="WTa-pS-LDx" firstAttribute="leading" secondItem="ZwL-ja-wyD" secondAttribute="leading" constant="34" id="U6w-cy-yD2"/>
+                                    <constraint firstAttribute="centerX" secondItem="c0D-zg-qZj" secondAttribute="centerX" id="Ys9-1U-Nnf"/>
+                                    <constraint firstAttribute="bottom" secondItem="908-8w-Lor" secondAttribute="bottom" constant="10" id="aaK-hV-hU4"/>
+                                    <constraint firstAttribute="bottom" secondItem="wqs-Ct-XKm" secondAttribute="bottom" constant="10" id="cME-Pt-aDA"/>
+                                    <constraint firstAttribute="trailing" secondItem="908-8w-Lor" secondAttribute="trailing" constant="34" id="hbQ-hh-b6t"/>
+                                    <constraint firstItem="zV6-of-viv" firstAttribute="top" secondItem="ZwL-ja-wyD" secondAttribute="top" constant="49" id="kfP-8X-gbL"/>
+                                    <constraint firstItem="wqs-Ct-XKm" firstAttribute="leading" secondItem="zV6-of-viv" secondAttribute="trailing" constant="40" id="oj8-AT-wro"/>
+                                    <constraint firstAttribute="bottom" secondItem="WTa-pS-LDx" secondAttribute="bottom" constant="10" id="pX1-kf-CaS"/>
+                                    <constraint firstAttribute="bottom" secondItem="gb0-EL-4Cj" secondAttribute="bottom" constant="10" id="xtc-5z-WmD"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7J8-Ym-KQm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69P-sk-fcM">
+                                        <rect key="frame" x="0.0" y="68" width="375" height="385"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photo1" translatesAutoresizingMaskIntoConstraints="NO" id="Kgj-hf-FfS">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="ZWu-n1-Zh4"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32 Streetからハイラインを散策する…" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSh-R6-JgQ">
+                                                <rect key="frame" x="24" y="304" width="326" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="jFt-2b-EJf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="途中でBlue Bottole Coffeeが路面店を…" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-S1-IiO">
+                                                <rect key="frame" x="24" y="334" width="326" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="j80-4t-IzC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="g3i-jr-chW">
+                                                <rect key="frame" x="172" y="384" width="30" height="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="9VG-Ls-2LQ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Tuseday 5 May, 2015" translatesAutoresizingMaskIntoConstraints="NO" id="KUA-qx-zAm">
+                                                <rect key="frame" x="138" y="279" width="99" height="11"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="11" id="eE7-0b-shd"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="DdI-S1-IiO" firstAttribute="top" secondItem="xSh-R6-JgQ" secondAttribute="bottom" constant="8" id="5wR-sS-H1Z"/>
+                                            <constraint firstAttribute="centerX" secondItem="g3i-jr-chW" secondAttribute="centerX" id="Gao-w1-HdH"/>
+                                            <constraint firstItem="DdI-S1-IiO" firstAttribute="leading" secondItem="xSh-R6-JgQ" secondAttribute="leading" id="IeP-e3-F4E"/>
+                                            <constraint firstAttribute="centerX" secondItem="DdI-S1-IiO" secondAttribute="centerX" id="Iq6-Ma-jHi"/>
+                                            <constraint firstItem="g3i-jr-chW" firstAttribute="top" secondItem="DdI-S1-IiO" secondAttribute="bottom" constant="28" id="Q79-Zw-eca"/>
+                                            <constraint firstAttribute="centerX" secondItem="Kgj-hf-FfS" secondAttribute="centerX" id="W0K-Cr-wen"/>
+                                            <constraint firstAttribute="centerX" secondItem="xSh-R6-JgQ" secondAttribute="centerX" id="bhw-xY-wuV"/>
+                                            <constraint firstItem="KUA-qx-zAm" firstAttribute="top" secondItem="Kgj-hf-FfS" secondAttribute="bottom" constant="30" id="hb3-ru-9ch"/>
+                                            <constraint firstItem="xSh-R6-JgQ" firstAttribute="top" secondItem="KUA-qx-zAm" secondAttribute="bottom" constant="14" id="iMp-6P-Jv3"/>
+                                            <constraint firstAttribute="bottom" secondItem="g3i-jr-chW" secondAttribute="bottom" id="m5O-To-qIc"/>
+                                            <constraint firstItem="Kgj-hf-FfS" firstAttribute="top" secondItem="69P-sk-fcM" secondAttribute="top" id="oia-id-3LA"/>
+                                            <constraint firstAttribute="centerX" secondItem="KUA-qx-zAm" secondAttribute="centerX" id="paw-b7-hiR"/>
+                                            <constraint firstAttribute="height" constant="385" id="wa7-vx-G4v"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="69P-sk-fcM" firstAttribute="leading" secondItem="7J8-Ym-KQm" secondAttribute="leading" id="EVV-AT-buZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="69P-sk-fcM" secondAttribute="bottom" constant="147" id="H8B-x9-LnX"/>
+                                    <constraint firstItem="69P-sk-fcM" firstAttribute="top" secondItem="7J8-Ym-KQm" secondAttribute="top" constant="68" id="KXy-uZ-bbT"/>
+                                    <constraint firstAttribute="trailing" secondItem="69P-sk-fcM" secondAttribute="trailing" id="fAQ-3l-L2l"/>
+                                    <constraint firstItem="69P-sk-fcM" firstAttribute="centerX" secondItem="7J8-Ym-KQm" secondAttribute="centerX" id="xdx-mO-wv2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZwL-ja-wyD" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="16G-w8-20l"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7J8-Ym-KQm" secondAttribute="bottom" id="3if-Ok-ieM"/>
+                            <constraint firstAttribute="trailing" secondItem="7J8-Ym-KQm" secondAttribute="trailing" id="Mc8-SN-RAU"/>
+                            <constraint firstItem="ZwL-ja-wyD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="TSB-jg-SvH"/>
+                            <constraint firstAttribute="trailing" secondItem="ZwL-ja-wyD" secondAttribute="trailing" id="TlW-DC-uXF"/>
+                            <constraint firstItem="7J8-Ym-KQm" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="cGK-R1-nBu"/>
+                            <constraint firstItem="7J8-Ym-KQm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="syh-mg-8dW"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="324.5" y="400"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tuseday 5 May, 2015" width="99" height="11"/>
+        <image name="cal3" width="6" height="9"/>
+        <image name="cal4" width="6" height="9"/>
+        <image name="cal5" width="6" height="9"/>
+        <image name="cal6" width="6" height="9"/>
+        <image name="cal7" width="6" height="9"/>
+        <image name="cal8" width="6" height="9"/>
+        <image name="cal9" width="6" height="9"/>
+        <image name="line" width="30" height="1"/>
+        <image name="photo1" width="375" height="250"/>
+        <image name="title_month" width="74" height="16"/>
+    </resources>
 </document>
