@@ -9,10 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var feedScrollView: UIScrollView!
+    //@IBOutlet weak var containerView: ContainerView!
+    @IBOutlet weak var marginTopContainer: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //feedScrollView.backgroundColor = UIColor.blackColor()
+        //marginTopContainer.constant = 380
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
