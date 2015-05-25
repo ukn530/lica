@@ -53,6 +53,12 @@ class FeedCell: UITableViewCell {
             self.addSubview(mainImageView)
             
             height = calcOwnPosY(mainImageView) + 24
+        } else if (topMargin == 0) {
+            
+            //When the first cell(today's cell) has an image,
+            //viewController makes top margin 0
+            //but if the cell dosent have an image, top margin should be 30
+            height = 30
         }
         
         //Set date

@@ -11,6 +11,13 @@ import UIKit
 class Containts {
 
     //Containts
+    
+    var planHeadline: [Dictionary<String, String>] = [
+        ["date":"2015/05/11", "image":"", "title1": "デザフェスに行く", "title2": ""],
+        ["date":"2015/05/10", "image":"", "title1": "写真教室（午前午後）", "title2": "たぶんセサミとご飯"],
+        ["date":"2015/05/08", "image":"", "title1": "わくわくで肉の会をする", "title2": "課題をやる"]
+    ]
+    
     var dayHeadline: [Dictionary<String,String>] = [
         ["date":"2015/05/05", "image":"photo1", "title1": "32Streetからハイラインを散策する", "title2": "途中でBlue Bottole Coffeeが路面店を出していたので入る"],
         ["date":"2015/05/04", "image":"photo2", "title1": "Jewish Museumに行ってみる", "title2": "ユダヤ人文化を探す"],

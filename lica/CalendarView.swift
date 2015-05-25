@@ -11,7 +11,7 @@ import UIKit
 class CalendarView: UIView {
     
     let screen: CGRect = UIScreen.mainScreen().bounds
-    var calendarHeight: CGFloat = 68
+    //var calendarHeight: CGFloat = 320
     
     var monthImageView: UIView!
     var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
@@ -19,9 +19,9 @@ class CalendarView: UIView {
     //init size and background
     override init(frame: CGRect) {
         
-        super.init(frame: CGRectMake(0, 0, screen.size.width, calendarHeight))
+        super.init(frame: CGRectMake(0, 0, screen.size.width, 68))
         
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.clearColor()
     }
     
     required init(coder aDecoder: NSCoder) {
