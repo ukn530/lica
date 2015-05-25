@@ -28,6 +28,9 @@ class FeedCell: UITableViewCell {
         topMargin = 30
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        // no color when selected
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
 
     required init(coder aDecoder: NSCoder) {

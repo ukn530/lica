@@ -67,8 +67,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.rowHeight = cell.frame.height
         
-        
-        
         return cell
     }
     
