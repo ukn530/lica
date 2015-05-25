@@ -164,7 +164,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             backgroundPlanFix.hidden = true
         }
         
-        if positionY > defaultPosition - calendarHeight {
+        // Calendar Position
+        if positionY >= defaultPosition - calendarHeight {
             
             calendarView.frame.origin.y = 0
         } else if positionY < defaultPosition - calendarHeight && positionY > planDefaultPosition {

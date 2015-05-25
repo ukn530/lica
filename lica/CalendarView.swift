@@ -43,19 +43,47 @@ class CalendarView: UIView {
         var amountDayWidth:CGFloat = 0
         
         for i in 0...6 {
-            amountDayWidth += UIImage(named: "cal\(sundayNum+i)")!.size.width
+            amountDayWidth += UIImage(named: "day_num_\(sundayNum+i)")!.size.width
         }
         var gapBtwDay: CGFloat = (screen.size.width - amountDayWidth)/8
         var lastXOfDay: CGFloat = 0
         
         //Draw Header Day
         for i in 0...6 {
-            var dayImage: UIImage = UIImage(named: "cal\(sundayNum+i)")!
+            var dayImage: UIImage = UIImage(named: "day_num_\(sundayNum+i)")!
             var dayImageView: UIImageView = UIImageView(frame: CGRectMake(gapBtwDay+lastXOfDay, 48, dayImage.size.width, dayImage.size.height))
             lastXOfDay = dayImageView.frame.origin.x + dayImage.size.width
+            
+            dayImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             dayImageView.image = dayImage
-            weekImageViews[i] = dayImageView
+            
+            
+            if i == 0 {
+                dayImageView.tintColor = UIColor.redColor()
+            } else if (i == 6) {
+                dayImageView.tintColor = UIColor.hexStr("71B3FF", alpha: 0.5)
+                println("666\(dayImageView.tintColor)")
+            }
+            
+            //weekImageViews[i] = dayImageView
             self.addSubview(dayImageView)
+        }
+    }
+}
+
+extension UIColor {
+    class func hexStr (var hexStr : NSString, var alpha : CGFloat) -> UIColor {
+        hexStr = hexStr.stringByReplacingOccurrencesOfString("#", withString: "")
+        let scanner = NSScanner(string: hexStr as String)
+        var color: UInt32 = 0
+        if scanner.scanHexInt(&color) {
+            let r = CGFloat((color & 0xFF0000) >> 16) / 255.0
+            let g = CGFloat((color & 0x00FF00) >> 8) / 255.0
+            let b = CGFloat(color & 0x0000FF) / 255.0
+            return UIColor(red:r,green:g,blue:b,alpha:alpha)
+        } else {
+            print("invalid hex string")
+            return UIColor.whiteColor();
         }
     }
 }
