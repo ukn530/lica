@@ -12,72 +12,71 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let screen: CGRect = UIScreen.mainScreen().bounds
     
-    var feedTableView: UITableView!
+    var calendarView: CalendarView!
     
-    var headerView: UIView!
-    var monthImageView: UIView!
-    var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
+    var feedTableView: UITableView!
+    var containts: Containts!
+    
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        // HeaderView
-        headerView = UIView(frame: CGRectMake(0, 0, screen.width, 68))
-        headerView.backgroundColor = UIColor.blackColor()
-        self.view.addSubview(headerView)
         
-        //Header Title
-        var monthImage: UIImage = UIImage(named: "title_month")!
-        monthImageView = UIImageView(image: monthImage)
-        monthImageView.frame = CGRectMake(screen.width/2 - monthImage.size.width/2, 17, monthImage.size.width, monthImage.size.height)
-        headerView.addSubview(monthImageView)
+        //Calendar View
+        calendarView = CalendarView()
+        calendarView.addWeekCalendar()
         
-        //calc each position of the day
-        var sundayNum: Int = 3
-        var amountDayWidth:CGFloat = 0
         
-        for i in 0...6 {
-            amountDayWidth += UIImage(named: "cal\(sundayNum+i)")!.size.width
-        }
-        var gapBtwDay: CGFloat = (screen.size.width - amountDayWidth)/8
-        var lastXOfDay: CGFloat = 0
+        //Feed View
+        feedTableView = UITableView(frame: screen, style: UITableViewStyle.Plain)
+        feedTableView.delegate = self
+        feedTableView.dataSource = self
+        feedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        //Draw Header Day
-        for i in 0...6 {
-            var dayImage: UIImage = UIImage(named: "cal\(sundayNum+i)")!
-            var dayImageView: UIImageView = UIImageView(frame: CGRectMake(gapBtwDay+lastXOfDay, 48, dayImage.size.width, dayImage.size.height))
-            lastXOfDay = dayImageView.frame.origin.x + dayImage.size.width
-            dayImageView.image = dayImage
-            weekImageViews[i] = dayImageView
-            self.view.addSubview(dayImageView)
-        }
-
+        self.view.addSubview(feedTableView)
         
-        //feedTableView.delegate = self
-        //feedTableView.dataSource = self
-        
-        //self.view.addSubview(feedTableView)
+        //Containts
+        containts = Containts()
     }
     
-    // セルに表示するテキスト
-    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
+    //Calendar Height
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return calendarView.calendarHeight
+    }
     
-    // セルの行数
+    //Calendar View
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return calendarView
+    }
+    
+    //Number of Cells
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return texts.count
-        return 3
+        return containts.dayHeadline.count
     }
     
-    
-    //セルの内容を変更
+    //Set Containts
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        //cell.textLabel?.text = texts[indexPath.row]
+        var cell = FeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        cell.frame.size.width = screen.size.width
+        if indexPath.row == 0 { cell.topMargin = 0}
+        cell.setContents(containts.dayHeadline[indexPath.row])
+        
+        tableView.rowHeight = cell.frame.height
+        
+        
+        
         return cell
     }
+    
+    // Deselect Cell
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView .deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
