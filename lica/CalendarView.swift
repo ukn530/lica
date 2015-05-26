@@ -12,6 +12,7 @@ class CalendarView: UIView {
     
     let screen: CGRect = UIScreen.mainScreen().bounds
     
+    var yearImageView: UIView!
     var monthImageView: UIView!
     var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
     
@@ -30,14 +31,30 @@ class CalendarView: UIView {
         super.init(coder: aDecoder)
     }
     
-    //add week calendar
-    func addWeekCalendar() {
+    // add Month of Week Calendar
+    func addMonthOfWeekCalendar(date: NSDate) {
         
-        //Title (month)
-        var monthImage: UIImage = UIImage(named: "title_month")!
+        let calendar: NSCalendar! = NSCalendar(identifier: NSGregorianCalendar)
+        var comps: NSDateComponents = calendar.components(NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.YearCalendarUnit, fromDate: date)
+        var month: Int = comps.month
+        var year: Int = comps.year
+        
+        var monthImage: UIImage = UIImage(named: "m\(month)")!
+        var yearImage: UIImage = UIImage(named: "y\(year)")!
+        
         monthImageView = UIImageView(image: monthImage)
-        monthImageView.frame = CGRectMake(screen.width/2 - monthImage.size.width/2, 17, monthImage.size.width, monthImage.size.height)
+        monthImageView.frame = CGRectMake(screen.width/2 - (monthImage.size.width+yearImage.size.width)/2, 15, monthImage.size.width, monthImage.size.height)
         self.addSubview(monthImageView)
+        
+        yearImageView = UIImageView(image: yearImage)
+        yearImageView.frame = CGRectMake(screen.width/2 - (monthImage.size.width+yearImage.size.width)/2 + monthImage.size.width-1, 15, yearImage.size.width, yearImage.size.height)
+        self.addSubview(yearImageView)
+
+    }
+    
+    // add week calendar
+    func addWeekCalendar(date: NSDate) {
+        
         
         //calc each position of the day
         var amountDayWidth:CGFloat = 0
@@ -86,8 +103,6 @@ class CalendarView: UIView {
             let num: Int = day - sundayNum
             weekImageViews[num].alpha = 1
         }
-        
-        println("day: \(day)")
     }
 }
 

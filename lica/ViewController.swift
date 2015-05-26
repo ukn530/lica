@@ -43,21 +43,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         scrollUp = nil
         
-        
+        // Background of Footer
         self.backgroundPlanFix = UIView(frame: CGRectMake(0, screen.height - headerHeight, screen.width, headerHeight))
         backgroundPlanFix.backgroundColor = UIColor.blackColor()
         backgroundPlanFix.hidden = true
         self.view.addSubview(backgroundPlanFix)
         
         
-        // Calendar View
-        calendarView = CalendarView()
-        calendarView.addWeekCalendar()
-        self.view.addSubview(calendarView)
-        
-        
         // Containts
         containts = Containts()
+        
+        //last day of Log 0
+        let lastDate: NSDate = dateFromData(0)
+        
+        // Calendar View
+        calendarView = CalendarView()
+        calendarView.addMonthOfWeekCalendar(lastDate)
+        calendarView.addWeekCalendar(lastDate)
+        self.view.addSubview(calendarView)
+        
     }
 
     
@@ -196,12 +200,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Highlight Date of calendar
     func highlightCurrentDate(row: Int) {
-        let dateString = containts.dayHeadline[row]["date"]!
+        
+        calendarView.highlightDay(dateFromData(row))
+    }
+    
+    // Date from Data
+    func dateFromData(num: Int) -> NSDate {
+        
+        let dateString = containts.dayHeadline[num]["date"]!
         let formatter: NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         let date: NSDate! = formatter.dateFromString(dateString)
-        calendarView.highlightDay(date)
+        
+        return date
     }
     
     // For Checking Scrolling Direction

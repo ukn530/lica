@@ -19,7 +19,6 @@ class FeedCell: UITableViewCell {
     var topMargin: CGFloat
     var height: CGFloat
     
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         mainImageView = UIImageView()
