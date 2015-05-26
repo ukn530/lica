@@ -14,8 +14,10 @@ class FeedCell: UITableViewCell {
     let dateImageView: UIImageView
     let title1: UILabel
     let title2: UILabel
+    let separator: UIView
     var dataSouce: Dictionary<String, String>
     var topMargin: CGFloat
+    var height: CGFloat
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -24,8 +26,10 @@ class FeedCell: UITableViewCell {
         dateImageView = UIImageView()
         title1 = UILabel()
         title2 = UILabel()
+        separator = UIView()
         dataSouce = Dictionary()
         topMargin = 30
+        height = 100
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -41,7 +45,7 @@ class FeedCell: UITableViewCell {
     
     func calcContentsHeight(data: Dictionary<String, String>) {
         
-        var height: CGFloat = topMargin
+        height = topMargin
         
         // Set Image
         if (!data["image"]!.isEmpty) {
@@ -83,15 +87,11 @@ class FeedCell: UITableViewCell {
         }
         
         //Set Separator
-        let separator: UIView = UIView(frame: CGRectMake(self.frame.size.width/2 - self.frame.size.width/20, height + 32, self.frame.size.width/10, 1))
+        separator.frame = CGRectMake(self.frame.size.width/2 - self.frame.size.width/20, height + 32, self.frame.size.width/10, 1)
         separator.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        self.addSubview(separator)
         
         height = calcOwnPosY(separator)
         
-        
-        //Height of own cell
-        self.frame.size.height = height
     }
     
     func setContents(data: Dictionary<String, String>) {
@@ -112,6 +112,8 @@ class FeedCell: UITableViewCell {
             self.addSubview(title2)
         }
         
+        self.addSubview(separator)
+        
     }
     
     
@@ -121,7 +123,7 @@ class FeedCell: UITableViewCell {
         title.text = text
         title.font = UIFont(name: "HiraMinProN-W3", size: 16)
         title.textAlignment = NSTextAlignment.Center
-        self.addSubview(title)
+        //self.addSubview(title)
     }
     
     func calcOwnPosY(view: UIView) -> CGFloat {

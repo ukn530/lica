@@ -138,6 +138,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         var cell = FeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        cell.frame.size.width = screen.size.width
         if indexPath.row == 0 { cell.topMargin = 0}
         if indexPath.section == 0 {
             cell.calcContentsHeight(containts.planHeadline[indexPath.row])
@@ -145,7 +146,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.calcContentsHeight(containts.dayHeadline[indexPath.row])
         }
         
-        return cell.frame.size.height
+        return cell.height
     }
     
     // Cell View
@@ -164,12 +165,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    // Deselect Cell
+    // Select Cell
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
     }
     
+    // Display Cell
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
     
     // ScrollView Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
