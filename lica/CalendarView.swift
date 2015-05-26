@@ -54,18 +54,17 @@ class CalendarView: UIView {
             var dayImageView: UIImageView = UIImageView(frame: CGRectMake(gapBtwDay+lastXOfDay, 48, dayImage.size.width, dayImage.size.height))
             lastXOfDay = dayImageView.frame.origin.x + dayImage.size.width
             
-            dayImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            dayImageView.image = dayImage
-            
-            
             if i == 0 {
-                dayImageView.tintColor = UIColor.redColor()
+                dayImageView.tintColor = UIColor.hexStr("FF5A6E", alpha: 1)
             } else if (i == 6) {
-                dayImageView.tintColor = UIColor.hexStr("71B3FF", alpha: 0.5)
-                println("666\(dayImageView.tintColor)")
+                dayImageView.tintColor = UIColor.hexStr("71B3FF", alpha: 1)
+            } else {
+                dayImageView.tintColor = UIColor.whiteColor()
             }
             
-            //weekImageViews[i] = dayImageView
+            dayImage = dayImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            dayImageView.image = dayImage
+            
             self.addSubview(dayImageView)
         }
     }

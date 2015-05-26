@@ -63,9 +63,9 @@ class FeedCell: UITableViewCell {
         
         //Set date
         var dateImage: UIImage = UIImage(named: "date")!
-        dateImageView.image = dateImage
         dateImageView.frame = CGRectMake(self.frame.size.width/2 - dateImage.size.width/2, height, dateImage.size.width
             , dateImage.size.height)
+        dateImageView.image = dateImage
         self.addSubview(dateImageView)
         
         height = calcOwnPosY(dateImageView)
