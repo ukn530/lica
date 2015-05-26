@@ -50,6 +50,7 @@ class CalendarView: UIView {
         
         //Draw Header Day
         for i in 0...6 {
+            
             var dayImage: UIImage = UIImage(named: "day_num_\(sundayNum+i)")!
             var dayImageView: UIImageView = UIImageView(frame: CGRectMake(gapBtwDay+lastXOfDay, 48, dayImage.size.width, dayImage.size.height))
             lastXOfDay = dayImageView.frame.origin.x + dayImage.size.width
@@ -75,7 +76,17 @@ class CalendarView: UIView {
     func highlightDay(date : NSDate) {
         let calendar: NSCalendar! = NSCalendar(identifier: NSGregorianCalendar)
         var comps: NSDateComponents = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: date)
-        var day = comps.day
+        var day: Int = comps.day
+        
+        for i in 0...6 {
+            weekImageViews[i].alpha = 0.4
+        }
+        
+        if sundayNum <= day && day < 7 + sundayNum {
+            let num: Int = day - sundayNum
+            weekImageViews[num].alpha = 1
+        }
+        
         println("day: \(day)")
     }
 }

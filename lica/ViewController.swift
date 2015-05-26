@@ -25,6 +25,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let headerHeight: CGFloat = 68
     let calendarHeight: CGFloat = 252
     
+    var scrollBeginingPointY: CGFloat = 0
+    var scrollUp: Bool?
+    
     
     override func viewDidLoad() {
         
@@ -36,8 +39,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         feedTableView.delegate = self
         feedTableView.dataSource = self
         feedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
         self.view.addSubview(feedTableView)
+        
+        scrollUp = nil
         
         
         self.backgroundPlanFix = UIView(frame: CGRectMake(0, screen.height - headerHeight, screen.width, headerHeight))
@@ -173,18 +177,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Display Cell
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 {
-            let dateString = containts.dayHeadline[indexPath.row]["date"]!
-            let formatter: NSDateFormatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd"
-            formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-            let date: NSDate! = formatter.dateFromString(dateString)
-            calendarView.highlightDay(date)
+        if (indexPath.section == 1 && scrollUp == true) {
+            highlightCurrentDate(indexPath.row+1)
         }
+    }
+    
+    // End Display Cell
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 && scrollUp == false {
+            highlightCurrentDate(indexPath.row+1)
+        }
+    }
+    
+    // Display Footer
+    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        highlightCurrentDate(0)
+    }
+    
+    // Highlight Date of calendar
+    func highlightCurrentDate(row: Int) {
+        let dateString = containts.dayHeadline[row]["date"]!
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        let date: NSDate! = formatter.dateFromString(dateString)
+        calendarView.highlightDay(date)
+    }
+    
+    // For Checking Scrolling Direction
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        scrollBeginingPointY = scrollView.contentOffset.y
     }
     
     // ScrollView Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        
         let positionY = scrollView.contentOffset.y
         
         // add background when calendar is bottom
@@ -205,6 +232,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             calendarView.frame.origin.y = screen.height - headerHeight - calendarHeight
         }
+        
+        // Direction of Scrolling
+        if scrollBeginingPointY > positionY {
+            scrollUp = true
+        } else if scrollBeginingPointY < positionY {
+            scrollUp = false
+        }
+        scrollBeginingPointY = positionY
 
     }
     
