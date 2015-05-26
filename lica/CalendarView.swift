@@ -64,7 +64,7 @@ class CalendarView: UIView {
             
             dayImage = dayImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             dayImageView.image = dayImage
-            
+            dayImageView.alpha = 0.4
             self.addSubview(dayImageView)
         }
     }

@@ -10,10 +10,10 @@ import UIKit
 
 class FeedCell: UITableViewCell {
     
-    var mainImageView: UIImageView
-    var dateImageView: UIImageView
-    var title1: UILabel
-    var title2: UILabel
+    let mainImageView: UIImageView
+    let dateImageView: UIImageView
+    let title1: UILabel
+    let title2: UILabel
     var dataSouce: Dictionary<String, String>
     var topMargin: CGFloat
     
@@ -39,7 +39,7 @@ class FeedCell: UITableViewCell {
     
     
     
-    func setContents(data: Dictionary<String, String>) {
+    func calcContentsHeight(data: Dictionary<String, String>) {
         
         var height: CGFloat = topMargin
         
@@ -50,7 +50,6 @@ class FeedCell: UITableViewCell {
             
             mainImageView.image = mainImage
             mainImageView.frame = CGRectMake(0, height, self.frame.width, mainImage.size.height * self.frame.width/mainImage.size.width)
-            self.addSubview(mainImageView)
             
             height = calcOwnPosY(mainImageView) + 24
         } else if (topMargin == 0) {
@@ -66,7 +65,6 @@ class FeedCell: UITableViewCell {
         dateImageView.frame = CGRectMake(self.frame.size.width/2 - dateImage.size.width/2, height, dateImage.size.width
             , dateImage.size.height)
         dateImageView.image = dateImage
-        self.addSubview(dateImageView)
         
         height = calcOwnPosY(dateImageView)
         
@@ -94,6 +92,26 @@ class FeedCell: UITableViewCell {
         
         //Height of own cell
         self.frame.size.height = height
+    }
+    
+    func setContents(data: Dictionary<String, String>) {
+        
+        calcContentsHeight(data)
+        
+        if (!data["image"]!.isEmpty) {
+            self.addSubview(mainImageView)
+        }
+        
+        self.addSubview(dateImageView)
+        
+        if (!data["title1"]!.isEmpty) {
+            self.addSubview(title1)
+        }
+        
+        if (!data["title2"]!.isEmpty) {
+            self.addSubview(title2)
+        }
+        
     }
     
     

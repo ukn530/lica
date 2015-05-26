@@ -72,13 +72,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     
+    // Number of Section
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 2
     }
     
     
-    // Calendar Height
+    // Header Height
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -87,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // Calendar View
+    // Header View
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0 {
@@ -99,6 +100,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // Footer View
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         if section == 0 {
@@ -108,6 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // Footer View
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         if section == 0 {
@@ -129,7 +132,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // Set Containts
+    
+    
+    // Cell Height
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        var cell = FeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        if indexPath.row == 0 { cell.topMargin = 0}
+        if indexPath.section == 0 {
+            cell.calcContentsHeight(containts.planHeadline[indexPath.row])
+        } else {
+            cell.calcContentsHeight(containts.dayHeadline[indexPath.row])
+        }
+        
+        return cell.frame.size.height
+    }
+    
+    // Cell View
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell = FeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
@@ -141,10 +160,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.setContents(containts.dayHeadline[indexPath.row])
         }
         
-        tableView.rowHeight = cell.frame.height
-        
         return cell
     }
+    
     
     // Deselect Cell
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
