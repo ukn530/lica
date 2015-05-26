@@ -173,7 +173,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Display Cell
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+        if indexPath.section == 1 {
+            let dateString = containts.dayHeadline[indexPath.row]["date"]!
+            let formatter: NSDateFormatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd"
+            formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+            let date: NSDate! = formatter.dateFromString(dateString)
+            calendarView.highlightDay(date)
+        }
     }
     
     // ScrollView Delegate

@@ -11,10 +11,11 @@ import UIKit
 class CalendarView: UIView {
     
     let screen: CGRect = UIScreen.mainScreen().bounds
-    //var calendarHeight: CGFloat = 320
     
     var monthImageView: UIView!
     var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
+    
+    var sundayNum: Int = 3
 
     //init size and background
     override init(frame: CGRect) {
@@ -39,7 +40,6 @@ class CalendarView: UIView {
         self.addSubview(monthImageView)
         
         //calc each position of the day
-        var sundayNum: Int = 3
         var amountDayWidth:CGFloat = 0
         
         for i in 0...6 {
@@ -66,7 +66,17 @@ class CalendarView: UIView {
             dayImageView.image = dayImage
             dayImageView.alpha = 0.4
             self.addSubview(dayImageView)
+            
+            weekImageViews[i] = dayImageView
         }
+    }
+    
+    
+    func highlightDay(date : NSDate) {
+        let calendar: NSCalendar! = NSCalendar(identifier: NSGregorianCalendar)
+        var comps: NSDateComponents = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: date)
+        var day = comps.day
+        println("day: \(day)")
     }
 }
 
