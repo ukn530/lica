@@ -12,11 +12,15 @@ class CalendarView: UIView {
     
     let screen: CGRect = UIScreen.mainScreen().bounds
     
-    var yearImageView: UIView!
-    var monthImageView: UIView!
+    var yearImageView: UIImageView = UIImageView()
+    var monthImageView: UIImageView = UIImageView()
     var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
     
-    var sundayNum: Int = 3
+    var weekDayDates: [NSDate]!
+    
+    let cal: Cal = Cal()
+    
+    
 
     //init size and background
     override init(frame: CGRect) {
@@ -31,46 +35,39 @@ class CalendarView: UIView {
         super.init(coder: aDecoder)
     }
     
+    
+    
     // add Month of Week Calendar
     func addMonthOfWeekCalendar(date: NSDate) {
         
-        let calendar: NSCalendar! = NSCalendar(identifier: NSGregorianCalendar)
-        var comps: NSDateComponents = calendar.components(NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.YearCalendarUnit, fromDate: date)
-        var month: Int = comps.month
-        var year: Int = comps.year
+        var monthImage: UIImage = UIImage(named: "m\(cal.month(date))")!
+        var yearImage: UIImage = UIImage(named: "y\(cal.year(date))")!
         
-        var monthImage: UIImage = UIImage(named: "m\(month)")!
-        var yearImage: UIImage = UIImage(named: "y\(year)")!
-        
-        monthImageView = UIImageView(image: monthImage)
+        monthImageView.image = monthImage
         monthImageView.frame = CGRectMake(screen.width/2 - (monthImage.size.width+yearImage.size.width)/2, 15, monthImage.size.width, monthImage.size.height)
+        monthImageView.tag = cal.month(date)
         self.addSubview(monthImageView)
         
-        yearImageView = UIImageView(image: yearImage)
+        yearImageView.image = yearImage
         yearImageView.frame = CGRectMake(screen.width/2 - (monthImage.size.width+yearImage.size.width)/2 + monthImage.size.width-1, 15, yearImage.size.width, yearImage.size.height)
+        yearImageView.tag = cal.year(date)
         self.addSubview(yearImageView)
 
     }
     
+    
+    
     // add week calendar
     func addWeekCalendar(date: NSDate) {
         
-        
-        //calc each position of the day
-        var amountDayWidth:CGFloat = 0
-        
-        for i in 0...6 {
-            amountDayWidth += UIImage(named: "day_num_\(sundayNum+i)")!.size.width
-        }
-        var gapBtwDay: CGFloat = (screen.size.width - amountDayWidth)/8
-        var lastXOfDay: CGFloat = 0
+        // Return weekday of the date
+        weekDayDates = weekDaysFromDate(date)
         
         //Draw Header Day
         for i in 0...6 {
             
-            var dayImage: UIImage = UIImage(named: "day_num_\(sundayNum+i)")!
-            var dayImageView: UIImageView = UIImageView(frame: CGRectMake(gapBtwDay+lastXOfDay, 48, dayImage.size.width, dayImage.size.height))
-            lastXOfDay = dayImageView.frame.origin.x + dayImage.size.width
+            var dayImage: UIImage = UIImage(named: "day_num_\(cal.day(weekDayDates[i]))")!
+            var dayImageView: UIImageView = UIImageView(frame: CGRectMake(CGFloat(i+1) * screen.width/8 - dayImage.size.width/2, 48, dayImage.size.width, dayImage.size.height))
             
             if i == 0 {
                 dayImageView.tintColor = UIColor.hexStr("FF5A6E", alpha: 1)
@@ -90,19 +87,70 @@ class CalendarView: UIView {
     }
     
     
+    
+    // Highlit day and change week
     func highlightDay(date : NSDate) {
-        let calendar: NSCalendar! = NSCalendar(identifier: NSGregorianCalendar)
-        var comps: NSDateComponents = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: date)
-        var day: Int = comps.day
         
+        // if calendar show the date, change its alpha.
+        // if calendar dosen't show the date, remove all views and draw new week, then change alpha
+        if contains(weekDayDates, date) {
+            
+            changeAlpha(date)
+        } else {
+            
+            for i in 0...6 {
+                weekImageViews[i].removeFromSuperview()
+            }
+            addWeekCalendar(date)
+            changeAlpha(date)
+        }
+        
+        // change month and year image view
+        if (cal.month(date) != monthImageView.tag) {
+            monthImageView.removeFromSuperview()
+            yearImageView.removeFromSuperview()
+            addMonthOfWeekCalendar(date)
+        } else if (cal.year(date) != yearImageView.tag) {
+            monthImageView.removeFromSuperview()
+            yearImageView.removeFromSuperview()
+            addMonthOfWeekCalendar(date)
+        }
+    }
+    
+    
+    // Change alpha to 1.0 of the date
+    func changeAlpha(date: NSDate) {
+        
+        // return all image views to 0.4
         for i in 0...6 {
             weekImageViews[i].alpha = 0.4
         }
         
-        if sundayNum <= day && day < 7 + sundayNum {
-            let num: Int = day - sundayNum
-            weekImageViews[num].alpha = 1
-        }
+        // find index from weekdayDates Array
+        let i = find(weekDayDates, date)!
+        
+        // change alpha of the date to 1
+        weekImageViews[i].alpha = 1
+        
+    }
+    
+    
+    // Return Weekday Dates of the date
+    func weekDaysFromDate(date: NSDate) -> [NSDate]{
+        
+        let weekDayNum: Double = Double(cal.weekday(date))
+        
+        var weekDayNums = [
+            NSDate(timeInterval: -(weekDayNum-1)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-2)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-3)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-4)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-5)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-6)*24*60*60, sinceDate: date),
+            NSDate(timeInterval: -(weekDayNum-7)*24*60*60, sinceDate: date)
+        ]
+        
+        return weekDayNums
     }
 }
 

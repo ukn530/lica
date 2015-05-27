@@ -33,14 +33,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         super.viewDidLoad()
         
-        
         // Feed View
         feedTableView = UITableView(frame: screen, style: UITableViewStyle.Plain)
         feedTableView.delegate = self
         feedTableView.dataSource = self
         feedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.view.addSubview(feedTableView)
-        
         scrollUp = nil
         
         // Background of Footer
@@ -49,11 +47,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         backgroundPlanFix.hidden = true
         self.view.addSubview(backgroundPlanFix)
         
-        
         // Containts
         containts = Containts()
         
-        //last day of Log 0
+        // Last day of Log 0
         let lastDate: NSDate = dateFromData(0)
         
         // Calendar View
@@ -61,7 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendarView.addMonthOfWeekCalendar(lastDate)
         calendarView.addWeekCalendar(lastDate)
         self.view.addSubview(calendarView)
-        
     }
 
     

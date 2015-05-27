@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DB848801B15860800AEE59D /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8487F1B15860800AEE59D /* Cal.swift */; };
 		61988E5D1B0F6F840007976E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988E5C1B0F6F840007976E /* AppDelegate.swift */; };
 		61988E5F1B0F6F840007976E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988E5E1B0F6F840007976E /* ViewController.swift */; };
 		61988E641B0F6F840007976E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61988E631B0F6F840007976E /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DB8487F1B15860800AEE59D /* Cal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		61988E571B0F6F840007976E /* lica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61988E5B1B0F6F840007976E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61988E5C1B0F6F840007976E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,10 +84,11 @@
 			children = (
 				61988E5C1B0F6F840007976E /* AppDelegate.swift */,
 				61988E5E1B0F6F840007976E /* ViewController.swift */,
+				4DB8487F1B15860800AEE59D /* Cal.swift */,
 				61FAE9651B11DDCB0093EA7E /* Containts.swift */,
 				61FAE9611B11A5010093EA7E /* FeedCell.swift */,
-				61988E631B0F6F840007976E /* Images.xcassets */,
 				61FAE9631B11C7320093EA7E /* CalendarView.swift */,
+				61988E631B0F6F840007976E /* Images.xcassets */,
 				61988E651B0F6F840007976E /* LaunchScreen.xib */,
 				61988E5A1B0F6F840007976E /* Supporting Files */,
 			);
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61988E5F1B0F6F840007976E /* ViewController.swift in Sources */,
+				4DB848801B15860800AEE59D /* Cal.swift in Sources */,
 				61FAE9661B11DDCB0093EA7E /* Containts.swift in Sources */,
 				61FAE9621B11A5010093EA7E /* FeedCell.swift in Sources */,
 				61988E5D1B0F6F840007976E /* AppDelegate.swift in Sources */,
