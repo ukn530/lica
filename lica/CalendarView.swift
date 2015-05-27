@@ -28,6 +28,7 @@ class CalendarView: UIView {
         super.init(frame: CGRectMake(0, 0, screen.size.width, 68))
         
         backgroundColor = UIColor.clearColor()
+        userInteractionEnabled = false
     }
     
     required init(coder aDecoder: NSCoder) {

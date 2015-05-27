@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.backgroundPlanFix = UIView(frame: CGRectMake(0, screen.height - headerHeight, screen.width, headerHeight))
         backgroundPlanFix.backgroundColor = UIColor.blackColor()
         backgroundPlanFix.hidden = true
+        backgroundPlanFix.userInteractionEnabled = false
         self.view.addSubview(backgroundPlanFix)
         
         // Containts
