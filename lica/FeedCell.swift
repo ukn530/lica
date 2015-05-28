@@ -12,6 +12,7 @@ class FeedCell: UITableViewCell {
     
     let mainImageView: UIImageView
     let dateImageView: UIImageView
+    let dateLabel: UILabel
     let title1: UILabel
     let title2: UILabel
     let separator: UIView
@@ -23,6 +24,7 @@ class FeedCell: UITableViewCell {
         
         mainImageView = UIImageView()
         dateImageView = UIImageView()
+        dateLabel = UILabel()
         title1 = UILabel()
         title2 = UILabel()
         separator = UIView()
@@ -64,12 +66,18 @@ class FeedCell: UITableViewCell {
         }
         
         //Set date
-        var dateImage: UIImage = UIImage(named: "date")!
-        dateImageView.frame = CGRectMake(self.frame.size.width/2 - dateImage.size.width/2, height, dateImage.size.width
-            , dateImage.size.height)
-        dateImageView.image = dateImage
+        dateLabel.frame = CGRectMake(0, height, self.frame.size.width, 14)
+        dateLabel.text = dateTextFromData(data)
+        dateLabel.font = UIFont(name: "IowanOldStyle-Roman", size: 9)
+        dateLabel.textColor = UIColor.hexStr("666666", alpha: 1)
+        dateLabel.textAlignment = NSTextAlignment.Center
         
-        height = calcOwnPosY(dateImageView)
+        let customLetterSpacing: CGFloat = 1.6
+        let attributedText = NSMutableAttributedString(string: dateTextFromData(data))
+        attributedText.addAttribute(NSKernAttributeName, value:customLetterSpacing, range: NSMakeRange(0, attributedText.length))
+        dateLabel.attributedText = attributedText
+        
+        height = calcOwnPosY(dateLabel)
         
         //Set Title1
         if (!data["title1"]!.isEmpty) {
@@ -101,7 +109,7 @@ class FeedCell: UITableViewCell {
             self.addSubview(mainImageView)
         }
         
-        self.addSubview(dateImageView)
+        self.addSubview(dateLabel)
         
         if (!data["title1"]!.isEmpty) {
             self.addSubview(title1)
@@ -128,5 +136,26 @@ class FeedCell: UITableViewCell {
     func calcOwnPosY(view: UIView) -> CGFloat {
         
         return view.frame.origin.y + view.frame.size.height
+    }
+    
+    
+    // Date from Data
+    func dateTextFromData(data: Dictionary<String, String>) -> String {
+        
+        let dateString = data["date"]!
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        let date: NSDate! = formatter.dateFromString(dateString)
+        
+        let weekdays: Array = ["Sunday", "Monday", "Tuseday", "Wednesday", "Thusday", "Friday", "Saturday"]
+        let months: Array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        
+        
+        let cal: Cal = Cal()
+        let dateText:String = "\(weekdays[cal.weekday(date)-1]) \(cal.day(date)) \(months[cal.month(date)-1]), \(cal.year(date))"
+        
+        
+        return dateText
     }
 }
