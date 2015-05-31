@@ -67,14 +67,11 @@ class FeedCell: UITableViewCell {
         
         //Set date
         dateLabel.frame = CGRectMake(0, height, self.frame.size.width, 14)
-        dateLabel.text = dateTextFromData(data)
         dateLabel.font = UIFont(name: "IowanOldStyle-Roman", size: 9)
         dateLabel.textColor = UIColor.hexStr("666666", alpha: 1)
         dateLabel.textAlignment = NSTextAlignment.Center
-        
-        let customLetterSpacing: CGFloat = 1.6
         let attributedText = NSMutableAttributedString(string: dateTextFromData(data))
-        attributedText.addAttribute(NSKernAttributeName, value:customLetterSpacing, range: NSMakeRange(0, attributedText.length))
+        attributedText.addAttribute(NSKernAttributeName, value:1.4, range: NSMakeRange(0, attributedText.length))
         dateLabel.attributedText = attributedText
         
         height = calcOwnPosY(dateLabel)
