@@ -15,6 +15,7 @@ class CalendarView: UIView {
     var yearImageView: UIImageView = UIImageView()
     var monthImageView: UIImageView = UIImageView()
     var weekImageViews = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
+    var monthImageViews: [UIImageView] = []
     
     var weekDayDates: [NSDate]!
     
@@ -96,24 +97,29 @@ class CalendarView: UIView {
     // Make Month Calendar
     func expandMonthCalendar(date: NSDate) {
         
+        let dates: [[NSDate]] = monthDaysFromDate(date)
         
-        
-        if cal.day(date) < 8 {
-            for j in 0...6 {
-                for i in 0...6 {
-                    
-                    //weekImageViews[i].frame.origin.y = 48 + CGFloat(j) * 24
-                    
+        for j in 0...5 {
+            for i in 0...6 {
+                if !contains(weekDayDates, dates[j][i]) {
+                    let day: Int = cal.day(dates[j][i])
+                    let dayImage: UIImage = UIImage(named: "day_num_\(day)")!
+                    let dayImageView: UIImageView = UIImageView(frame: CGRectMake(CGFloat(i+1) * screen.width/8 - dayImage.size.width/2, 64 + CGFloat(j)*42, dayImage.size.width, dayImage.size.height))
+                    dayImageView.image = dayImage
+                    self.addSubview(dayImageView)
+                    monthImageViews.append(dayImageView)
+                } else {
+                    weekImageViews[i].frame.origin.y = 64 + CGFloat(j) * 42
                 }
             }
         }
-        
-        
-        
-        println("makeMonthCalendar")
     }
     
     func shrinkMonthCalendar() {
+        
+        for i in 0...monthImageViews.count-1 {
+            monthImageViews[i].removeFromSuperview()
+        }
         
         for i in 0...6 {
             weekImageViews[i].frame.origin.y = 48
@@ -187,6 +193,21 @@ class CalendarView: UIView {
         ]
         
         return weekDayNums
+    }
+    
+    func monthDaysFromDate(date: NSDate) -> [[NSDate]] {
+        
+        let thisDay: Double = Double(cal.day(date))
+        let firstDayOfThisMonth = NSDate(timeInterval: -(thisDay-1)*24*60*60, sinceDate: date)
+        let eighthDayOfThisMonth = NSDate(timeInterval: 7*24*60*60, sinceDate: firstDayOfThisMonth)
+        let fifteenDayOfThisMonth = NSDate(timeInterval: 7*24*60*60, sinceDate: eighthDayOfThisMonth)
+        let twentytwoDayOfThisMonth = NSDate(timeInterval: 7*24*60*60, sinceDate: fifteenDayOfThisMonth)
+        let twentynineDayOfThisMonth = NSDate(timeInterval: 7*24*60*60, sinceDate: twentytwoDayOfThisMonth)
+        let thirtyDayOfThisMonth = NSDate(timeInterval: 7*24*60*60, sinceDate: twentynineDayOfThisMonth)
+        
+        let monthDayNums = [weekDaysFromDate(firstDayOfThisMonth), weekDaysFromDate(eighthDayOfThisMonth), weekDaysFromDate(fifteenDayOfThisMonth), weekDaysFromDate(twentytwoDayOfThisMonth), weekDaysFromDate(twentynineDayOfThisMonth), weekDaysFromDate(thirtyDayOfThisMonth)]
+        
+        return monthDayNums
     }
 }
 
