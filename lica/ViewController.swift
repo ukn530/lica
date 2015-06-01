@@ -181,6 +181,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if (indexPath.section == 1 && scrollUp == true) {
             highlightCurrentDate(indexPath.row+1)
         }
+        
     }
     
     // End Display Cell
@@ -249,6 +250,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             scrollUp = false
         }
         scrollBeginingPointY = positionY
+
+        if positionY < defaultPosition - 20 && !calendarView.isDisplayMonthCalendar {
+            calendarView.expandMonthCalendar(dateFromData(0))
+            calendarView.isDisplayMonthCalendar = true
+        } else if positionY > defaultPosition - 20 && calendarView.isDisplayMonthCalendar! {
+            calendarView.shrinkMonthCalendar()
+            calendarView.isDisplayMonthCalendar = false
+            
+        }
 
     }
     

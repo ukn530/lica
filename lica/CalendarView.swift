@@ -18,6 +18,8 @@ class CalendarView: UIView {
     
     var weekDayDates: [NSDate]!
     
+    var isDisplayMonthCalendar: Bool!
+    
     let cal: Cal = Cal()
     
     
@@ -29,6 +31,8 @@ class CalendarView: UIView {
         
         backgroundColor = UIColor.clearColor()
         userInteractionEnabled = false
+        
+        isDisplayMonthCalendar = false
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -85,6 +89,37 @@ class CalendarView: UIView {
             
             weekImageViews[i] = dayImageView
         }
+    }
+    
+    
+    
+    // Make Month Calendar
+    func expandMonthCalendar(date: NSDate) {
+        
+        
+        
+        if cal.day(date) < 8 {
+            for j in 0...6 {
+                for i in 0...6 {
+                    
+                    //weekImageViews[i].frame.origin.y = 48 + CGFloat(j) * 24
+                    
+                }
+            }
+        }
+        
+        
+        
+        println("makeMonthCalendar")
+    }
+    
+    func shrinkMonthCalendar() {
+        
+        for i in 0...6 {
+            weekImageViews[i].frame.origin.y = 48
+        }
+        
+        println("shrinkMonthCalendar")
     }
     
     
