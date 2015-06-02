@@ -251,11 +251,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         scrollBeginingPointY = positionY
 
-        if positionY < defaultPosition - 20 && !calendarView.isDisplayMonthCalendar {
+        if positionY < defaultPosition - 120 && !calendarView.isDisplayMonthCalendar {
             calendarView.expandMonthCalendar(dateFromData(0))
             calendarView.isDisplayMonthCalendar = true
-        } else if positionY > defaultPosition - 20 && calendarView.isDisplayMonthCalendar! {
-            calendarView.shrinkMonthCalendar()
+        } else if positionY > defaultPosition - 120 && calendarView.isDisplayMonthCalendar! {
+            calendarView.shrinkMonthCalendar(dateFromData(0))
             calendarView.isDisplayMonthCalendar = false
             
         }

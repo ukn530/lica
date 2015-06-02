@@ -103,29 +103,41 @@ class CalendarView: UIView {
             for i in 0...6 {
                 if !contains(weekDayDates, dates[j][i]) {
                     let day: Int = cal.day(dates[j][i])
-                    let dayImage: UIImage = UIImage(named: "day_num_\(day)")!
+                    var dayImage: UIImage = UIImage(named: "day_num_\(day)")!
                     let dayImageView: UIImageView = UIImageView(frame: CGRectMake(CGFloat(i+1) * screen.width/8 - dayImage.size.width/2, 64 + CGFloat(j)*42, dayImage.size.width, dayImage.size.height))
+                    if i == 0 {
+                        dayImageView.tintColor = UIColor.hexStr("FF5A6E", alpha: 1)
+                    } else if i == 6 {
+                        dayImageView.tintColor = UIColor.hexStr("71B3FF", alpha: 1)
+                    } else {
+                        dayImageView.tintColor = UIColor.whiteColor()
+                    }
+                    dayImage = dayImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
                     dayImageView.image = dayImage
+                    
+                    if cal.month(dates[j][i]) != cal.month(date) {
+                        dayImageView.alpha = 0.4
+                    }
                     self.addSubview(dayImageView)
                     monthImageViews.append(dayImageView)
                 } else {
                     weekImageViews[i].frame.origin.y = 64 + CGFloat(j) * 42
+                    weekImageViews[i].alpha = 1
+                    
+                    if cal.month(dates[j][i]) != cal.month(date) {
+                        weekImageViews[i].alpha = 0.4
+                    }
                 }
             }
         }
     }
     
-    func shrinkMonthCalendar() {
+    func shrinkMonthCalendar(date: NSDate) {
         
         for i in 0...monthImageViews.count-1 {
             monthImageViews[i].removeFromSuperview()
         }
-        
-        for i in 0...6 {
-            weekImageViews[i].frame.origin.y = 48
-        }
-        
-        println("shrinkMonthCalendar")
+        changeAlpha(date)
     }
     
     
@@ -166,6 +178,7 @@ class CalendarView: UIView {
         // return all image views to 0.4
         for i in 0...6 {
             weekImageViews[i].alpha = 0.4
+            weekImageViews[i].frame.origin.y = 48
         }
         
         // find index from weekdayDates Array
